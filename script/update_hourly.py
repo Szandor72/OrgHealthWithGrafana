@@ -36,7 +36,7 @@ record_to_insert = []
 """
 Connect to salesforce
 """
-sf = Salesforce(username=SF_USERNAME,password=SF_PASSWORD, security_token=SF_TOKEN, domain='test')
+sf = Salesforce(username=SF_USERNAME,password=SF_PASSWORD, security_token=SF_TOKEN)
 
 """
 Connect to salesforce via API
@@ -49,8 +49,8 @@ params = {
     "username": SF_USERNAME, # The email you use to login
     "password": SF_PASSWORD+SF_TOKEN # Concat your password and your security token
 }
-r = requests.post("https://test.salesforce.com/services/oauth2/token", params=params)
 # if you connect to a Sandbox, use test.salesforce.com instead
+r = requests.post("https://login.salesforce.com/services/oauth2/token", params=params)
 access_token = r.json().get("access_token")
 instance_url = r.json().get("instance_url")
 print("r: ", r.json())
