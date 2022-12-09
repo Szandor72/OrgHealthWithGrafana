@@ -8,6 +8,7 @@ aiohttp
 simple_salesforce
 pandas
 influxdb-client[async]
+python-dotenv
 #influxdb-client[extra]
 datetime
 pygeohash
